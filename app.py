@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:khuri@1629@localhost/Product_Management_System'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-app.secret_key='Riddhi'
+app.secret_key='PMS@123'
 api=Api(app)
 
 @app.before_first_request

@@ -14,18 +14,17 @@ class Product(Resource):
 
     parser.add_argument('description',
         type=str,
-        required=True,
+        required=False,
         help="You must Enter the description of the product!!"
     )
 
     def post(self):
-        
         recv_data=Product.parser.parse_args()
+        print(type(recv_data))
 
         if ProductModel.find_by_name(recv_data['name']):
             return {"message":"A product with the name {} already exists..".format(recv_data['name'])},400
-
-
+        
         product=ProductModel(recv_data['name'], recv_data['description'])
 
         try:
