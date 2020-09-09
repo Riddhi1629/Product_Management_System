@@ -1,0 +1,5 @@
+python 3.6
+flask 1.1.2
+redis 
+Postgres Database
+Redis Database
