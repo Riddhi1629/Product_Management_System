@@ -18,14 +18,6 @@ class Product(Resource):
         help="You must Enter the description of the product!!"
     )
 
-    # get_parser = reqparse.RequestParser()
-
-    # get_parser.add_argument('name',
-    #     type=str,
-    #     required=True,
-    #     help="You must Enter the name of the product!!"
-    # )
-
     def post(self):
         
         recv_data=Product.parser.parse_args()
@@ -44,7 +36,6 @@ class Product(Resource):
         return product.json(),201
 
     def get(self):
-        # recv_data=Product.get_parser.parse_args()
         recv_data = request.get_json()
         if recv_data is not None:
             product=ProductModel.find_by_name(recv_data['name'])
@@ -54,7 +45,3 @@ class Product(Resource):
 
         else:
             return {'products':[product.json() for product in ProductModel.query.all()]}
-
-class Products(Resource):
-    def get(self):
-        return {'products':[product.json() for product in ProductModel.query.all()]}

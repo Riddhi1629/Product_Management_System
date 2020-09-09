@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 
-from resources.product import Product, Products
+from resources.product import Product
 from resources.geoprice import GeoPrice
 
 
